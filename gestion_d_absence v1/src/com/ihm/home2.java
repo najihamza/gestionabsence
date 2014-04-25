@@ -55,7 +55,7 @@ public class home2  extends JFrame{
 		JLabel bienvenu = new JLabel("bienvenu");
 		bienvenu.setHorizontalAlignment(SwingConstants.LEFT);
 		GridBagConstraints gbc_bienvenu = new GridBagConstraints();
-		gbc_bienvenu.anchor = GridBagConstraints.NORTHEAST;
+ 		gbc_bienvenu.anchor = GridBagConstraints.NORTHEAST;
 		gbc_bienvenu.insets = new Insets(0, 0, 0, 5);
 		gbc_bienvenu.gridx = 21;
 		gbc_bienvenu.gridy = 0;
@@ -66,11 +66,23 @@ public class home2  extends JFrame{
 		login.setHorizontalAlignment(SwingConstants.LEFT);
 		GridBagConstraints gbc_login = new GridBagConstraints();
 		gbc_login.gridwidth = 2;
-		gbc_login.anchor = GridBagConstraints.NORTH;
+ 		gbc_login.anchor = GridBagConstraints.NORTH;
 		gbc_login.gridx = 23;
 		gbc_login.gridy = 0;
 		gbc_login.gridwidth = 2;
 		north.add(login, gbc_login);
+		
+		
+		JLabel aaa = new JLabel("..");
+		login.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_logina = new GridBagConstraints();
+		gbc_logina.gridwidth = 5;
+		gbc_logina.anchor = GridBagConstraints.NORTHEAST;
+		gbc_logina.gridx = 28;
+		gbc_logina.gridy = 0;
+		gbc_logina.gridwidth = 2;
+		north.add(aaa, gbc_login);
+		
 		
 		JPanel center = new JPanel();
 		contentPane.add(center, BorderLayout.CENTER);
