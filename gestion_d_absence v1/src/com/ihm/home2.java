@@ -3,6 +3,7 @@ package com.ihm;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -17,16 +18,21 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class home2  extends JFrame implements MouseListener{
-	ImageIcon one = new ImageIcon("images/avant.png");
-	ImageIcon one1 = new ImageIcon("images/apres.png");
-	ImageIcon tow = new ImageIcon("images/etu.jpg");
-	ImageIcon tow1 = new ImageIcon("images/etu1.jpg");
+	ImageIcon one = new ImageIcon("images/etu.jpg");
+	ImageIcon one1 = new ImageIcon("images/etu1.jpg");
+	ImageIcon tow = new ImageIcon("images/avant.png");
+	ImageIcon tow1 = new ImageIcon("images/apres.png");
 	ImageIcon tree = new ImageIcon("images/stat.jpg");
-	ImageIcon tree1 = new ImageIcon("images/stat1.jpg");
+	ImageIcon tree1 = new ImageIcon("images/stat1.png");
 	ImageIcon four = new ImageIcon("images/set.png");
 	ImageIcon four1 = new ImageIcon("images/set1.png");
-	ImageIcon logos = new ImageIcon("images/logo.png");
+	ImageIcon logos = new ImageIcon("images/logo.jpg");
 	private JPanel contentPane;
+	 JLabel gestion_etudiant = new JLabel(one);
+	JLabel lblGestionDabsence = new JLabel(tow);
+	JLabel lblStatistiques = new JLabel(tree);
+	JLabel lblGestionDeCompte = new JLabel(four);
+	JLabel titre = new JLabel( );
 	
 	public home2() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,7 +40,7 @@ public class home2  extends JFrame implements MouseListener{
 		Dimension dim = GuiTools.getDimScreen();
 		setSize((dim.width / 2 )+(dim.width / 4)  , (dim.height /2)+(dim.height / 3)+(dim.height / 9));
 		
-		
+		setLocation((dim.width / 8 ),0);
 		
 		
 		setResizable(false);
@@ -83,17 +89,7 @@ public class home2  extends JFrame implements MouseListener{
 		gbc_login.gridwidth = 2;
 		north.add(login, gbc_login);
 		
-//		JLabel logina = new JLabel("...." );
-//		login.setHorizontalAlignment(SwingConstants.LEFT);
-//		GridBagConstraints gbc_logina = new GridBagConstraints();
-//		gbc_login.gridwidth = 2;
-// 	 gbc_login.anchor = GridBagConstraints.NORTH;
-//		gbc_login.gridx = 22;
-//		gbc_login.gridy = 0;
-//		gbc_login.gridwidth = 1;
-//		north.add(logina, gbc_login);
-	 
-		
+ 	
 		
 		JPanel center = new JPanel();
 		contentPane.add(center, BorderLayout.CENTER);
@@ -105,7 +101,25 @@ public class home2  extends JFrame implements MouseListener{
 		 
 		center.setLayout(gbl_center);
 		
-		JLabel gestion_etudiant = new JLabel(one);
+		
+		
+		titre.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 18));
+		GridBagConstraints gbc_titre = new GridBagConstraints();
+		gbc_titre.insets = new Insets(0, 0, 5, 5);
+		gbc_titre.gridx = 7;
+		gbc_titre.gridy = 2;
+		center.add(titre, gbc_titre);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		gestion_etudiant.addMouseListener(this);
+//		JLabel gestion_etudiant = new JLabel(one);
 		GridBagConstraints gbc_gestion_etudiant = new GridBagConstraints();
 		gbc_gestion_etudiant.insets = new Insets(0, 0, 5, 5);
 		gbc_gestion_etudiant.gridx = 7;
@@ -114,7 +128,8 @@ public class home2  extends JFrame implements MouseListener{
 //		gbc_gestion_etudiant.fill = GridBagConstraints.BOTH;
 		center.add(gestion_etudiant, gbc_gestion_etudiant);
 		
-		JLabel lblGestionDabsence = new JLabel(tow);
+		lblGestionDabsence.addMouseListener(this);
+//		JLabel lblGestionDabsence = new JLabel(tow);
 		GridBagConstraints gbc_lblGestionDabsence = new GridBagConstraints();
 		gbc_lblGestionDabsence.insets = new Insets(0, 0, 5, 0);
 		gbc_lblGestionDabsence.gridx = 8;
@@ -123,7 +138,8 @@ public class home2  extends JFrame implements MouseListener{
 //		 gbc_lblGestionDabsence.fill = GridBagConstraints.BOTH;
 		center.add(lblGestionDabsence, gbc_lblGestionDabsence);
 		
-		JLabel lblStatistiques = new JLabel(tree);
+		lblStatistiques.addMouseListener(this);
+//		JLabel lblStatistiques = new JLabel(tree);
 		GridBagConstraints gbc_lblStatistiques = new GridBagConstraints();
 		gbc_lblStatistiques.insets = new Insets(0, 0, 0, 5);
 		gbc_lblStatistiques.gridx = 7;
@@ -133,7 +149,8 @@ public class home2  extends JFrame implements MouseListener{
 		
 		center.add(lblStatistiques, gbc_lblStatistiques);
 		
-		JLabel lblGestionDeCompte = new JLabel(four);
+		lblGestionDeCompte.addMouseListener(this);
+//		JLabel lblGestionDeCompte = new JLabel(four);
 		GridBagConstraints gbc_lblGestionDeCompte = new GridBagConstraints();
 		gbc_lblGestionDeCompte.gridx = 8;
 		gbc_lblGestionDeCompte.gridy = 7;
@@ -165,22 +182,50 @@ public class home2  extends JFrame implements MouseListener{
 	}
 	 
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	 
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
+		JLabel lab = (JLabel) e.getSource();
 		
+		if( lab == gestion_etudiant )  {
+ 		gestion_etudiant.setIcon(one1); 
+		titre.setText("Gestion des étudiants");
+		}
+		if( lab == lblGestionDabsence )  {
+			lblGestionDabsence.setIcon(tow1); 
+			titre.setText("Gestion d'absence ");
+		}
+		if( lab == lblStatistiques )  {
+			lblStatistiques.setIcon(tree1); 
+			titre.setText("Statistiques ");
+		}
+		if( lab == lblGestionDeCompte )  {
+			lblGestionDeCompte.setIcon(four1);
+			titre.setText("Paramètres ");
+		}
 	}
 	 
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+JLabel lab = (JLabel) e.getSource();
 		
+		if( lab == gestion_etudiant )  
+ 		gestion_etudiant.setIcon(one); 
+		
+		if( lab == lblGestionDabsence )  
+			lblGestionDabsence.setIcon(tow); 
+		
+		if( lab == lblStatistiques )  
+			lblStatistiques.setIcon(tree); 
+		
+		if( lab == lblGestionDeCompte )  
+			lblGestionDeCompte.setIcon(four); 
+		titre.setText(" ");
 	}
 	 
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+	 
 		
 	}
 	 

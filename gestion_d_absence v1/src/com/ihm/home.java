@@ -18,6 +18,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class home extends JFrame {
 
@@ -100,36 +101,44 @@ public class home extends JFrame {
 		JPanel center = new JPanel();
 		contentPane.add(center, BorderLayout.CENTER);
 		GridBagLayout gbl_center = new GridBagLayout();
-		gbl_center.columnWidths = new int[] {6, 6, 30, 30, 30, 30, 30, 0, 0, 0};
+		gbl_center.columnWidths = new int[] {6, 6, 30, 0, 30, 30, 30, 30, 0, 0, 0};
 		gbl_center.rowHeights = new int[] {6, 6, 30, 30, 30, 30, 0, 0, 0};
-		gbl_center.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_center.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_center.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		center.setLayout(gbl_center);
+		
+		JLabel lblHamzaNaji = new JLabel("hamza naji");
+		lblHamzaNaji.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 18));
+		GridBagConstraints gbc_lblHamzaNaji = new GridBagConstraints();
+		gbc_lblHamzaNaji.insets = new Insets(0, 0, 5, 5);
+		gbc_lblHamzaNaji.gridx = 3;
+		gbc_lblHamzaNaji.gridy = 4;
+		center.add(lblHamzaNaji, gbc_lblHamzaNaji);
 		
 		JLabel gestion_etudiant = new JLabel(one);
 		GridBagConstraints gbc_gestion_etudiant = new GridBagConstraints();
 		gbc_gestion_etudiant.insets = new Insets(0, 0, 5, 5);
-		gbc_gestion_etudiant.gridx = 7;
+		gbc_gestion_etudiant.gridx = 8;
 		gbc_gestion_etudiant.gridy = 6;
 		center.add(gestion_etudiant, gbc_gestion_etudiant);
 		
 		JLabel lblGestionDabsence = new JLabel(tow);
 		GridBagConstraints gbc_lblGestionDabsence = new GridBagConstraints();
 		gbc_lblGestionDabsence.insets = new Insets(0, 0, 5, 0);
-		gbc_lblGestionDabsence.gridx = 8;
+		gbc_lblGestionDabsence.gridx = 9;
 		gbc_lblGestionDabsence.gridy = 6;
 		center.add(lblGestionDabsence, gbc_lblGestionDabsence);
 		
 		JLabel lblStatistiques = new JLabel(tree);
 		GridBagConstraints gbc_lblStatistiques = new GridBagConstraints();
 		gbc_lblStatistiques.insets = new Insets(0, 0, 0, 5);
-		gbc_lblStatistiques.gridx = 7;
+		gbc_lblStatistiques.gridx = 8;
 		gbc_lblStatistiques.gridy = 7;
 		center.add(lblStatistiques, gbc_lblStatistiques);
 		
 		JLabel lblGestionDeCompte = new JLabel(four);
 		GridBagConstraints gbc_lblGestionDeCompte = new GridBagConstraints();
-		gbc_lblGestionDeCompte.gridx = 8;
+		gbc_lblGestionDeCompte.gridx = 9;
 		gbc_lblGestionDeCompte.gridy = 7;
 		center.add(lblGestionDeCompte, gbc_lblGestionDeCompte);
 		
