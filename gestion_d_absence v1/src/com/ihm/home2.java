@@ -38,12 +38,12 @@ public class home2  extends JFrame implements MouseListener{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 
 		Dimension dim = GuiTools.getDimScreen();
-		setSize((dim.width / 2 )+(dim.width / 4)  , (dim.height /2)+(dim.height / 3)+(dim.height / 9));
+		setSize((dim.width / 2 )  , (dim.height /2)+(dim.height / 3) );
 		
 		setLocation((dim.width / 8 ),0);
 		
 		
-		setResizable(false);
+//		setResizable(false);
 	/***************************************************************************/
 
 		contentPane = new JPanel();
